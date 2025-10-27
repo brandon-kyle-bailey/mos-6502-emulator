@@ -59,6 +59,10 @@ struct CPU {
   // operation codes
   static const BYTE LDA_IMMEDIATE = 0xA9;
   static const BYTE LDA_ZP = 0xA5;
+  static const BYTE JMP_A = 0x4C;
+  static const BYTE JMP_I = 0x6C;
+  static const BYTE JSR_A = 0x20;
+  static const BYTE RTS_I = 0x60;
 
   void LdaStatus() {
     if (AC == 0) {
@@ -90,11 +94,20 @@ struct CPU {
     return data;
   }
 
+  TWO_BYTE ReadAddress(unsigned int &cycles, MEM &mem, TWO_BYTE &address) {
+    BYTE lowByte = ReadMemory(cycles, mem, address);
+    BYTE highByte = ReadMemory(cycles, mem, address);
+    TWO_BYTE fullAddress = (static_cast<TWO_BYTE>(highByte) << 8) | lowByte;
+    std::cout << "Reading address: " << std::hex
+              << static_cast<int>(fullAddress) << "\n";
+    return fullAddress;
+  }
+
   void WriteMemory(MEM &mem, TWO_BYTE &address, BYTE &value) {
+    mem.Write(address, value);
     std::cout << "Writing to memory address: " << std::hex
               << static_cast<int>(address) << " value: " << std::hex
               << static_cast<int>(value) << "\n";
-    mem.Write(address, value);
   }
 
   void HandlerLdaImmediate(unsigned int &cycles, MEM &mem) {
@@ -106,12 +119,29 @@ struct CPU {
 
   void HandlerLdaZp(unsigned int &cycles, MEM &mem) {
     std::cout << "Instruction is to load accumulator zero flag" << "\n";
-    TWO_BYTE address;
-    address += ReadMemory(cycles, mem, PC);
-    address += ReadMemory(cycles, mem, PC);
+    TWO_BYTE address = ReadAddress(cycles, mem, PC);
     BYTE data = ReadData(mem, address);
     AC = data;
     LdaStatus();
+  }
+
+  void HandlerJumpAbsolute(unsigned int &cycles, MEM &mem) {
+    std::cout << "Instruction is to jump absolute" << "\n";
+    TWO_BYTE address = ReadAddress(cycles, mem, PC);
+    BYTE data = ReadData(mem, address);
+    PC = data;
+  }
+
+  void HandlerJumpIndirect(unsigned int &cycles, MEM &mem) {
+    std::cout << "Instruction is to jump indirect" << "\n";
+  }
+
+  void HandlerJumpToSubroutineAbsolute(unsigned int &cycles, MEM &mem) {
+    std::cout << "Instruction is to jump to subroutine absolute" << "\n";
+  }
+
+  void HandlerReturnFromSubroutineImplied(unsigned int &cycles, MEM &mem) {
+    std::cout << "Instruction is to return from subroutine implied" << "\n";
   }
 
   void setProcessorStatus(BYTE flag) { PS |= flag; }
@@ -141,6 +171,18 @@ struct CPU {
       } break;
       case LDA_ZP: {
         HandlerLdaZp(cycles, mem);
+      } break;
+      case JMP_A: {
+        HandlerJumpAbsolute(cycles, mem);
+      } break;
+      case JMP_I: {
+        HandlerJumpIndirect(cycles, mem);
+      } break;
+      case JSR_A: {
+        HandlerJumpIndirect(cycles, mem);
+      } break;
+      case RTS_I: {
+        HandlerReturnFromSubroutineImplied(cycles, mem);
       } break;
       default: {
         std::cout << "Unknown instruction: " << std::hex
