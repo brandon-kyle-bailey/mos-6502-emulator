@@ -110,6 +110,11 @@ struct CPU {
               << static_cast<int>(value) << "\n";
   }
 
+  void WriteAddress(unsigned int &cycles, MEM &mem, TWO_BYTE &address,
+                    TWO_BYTE &value) {
+    cycles -= 2;
+  }
+
   void HandlerLdaImmediate(unsigned int &cycles, MEM &mem) {
     std::cout << "Instruction is to load accumulator immediately" << "\n";
     BYTE data = ReadMemory(cycles, mem, PC);
