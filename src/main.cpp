@@ -113,8 +113,6 @@ struct CPU {
     } else {
       clearFlag(NEGATIVE_FLAG);
     }
-    std::cout << "LDA Immediate executed, AC: " << std::hex << AC
-              << " Processor Status: " << std::hex << +PS << "\n";
     cycles--;
   }
 
@@ -133,8 +131,6 @@ struct CPU {
     } else {
       clearFlag(NEGATIVE_FLAG);
     }
-    std::cout << "LDX Immediate executed, IRX: " << std::hex << IRX
-              << " Processor Status: " << std::hex << +PS << "\n";
     cycles--;
   }
 
@@ -153,8 +149,6 @@ struct CPU {
     } else {
       clearFlag(NEGATIVE_FLAG);
     }
-    std::cout << "LDY Immediate executed, IRY: " << std::hex << IRY
-              << " Processor Status: " << std::hex << +PS << "\n";
     cycles--;
   }
 
@@ -163,7 +157,6 @@ struct CPU {
     cycles--;
     write(location, AC);
     cycles--;
-    std::cout << "STA Zero page executed, AC: " << std::hex << AC << "\n";
   }
 
   void stx_zp(int &cycles) {
@@ -171,7 +164,6 @@ struct CPU {
     cycles--;
     write(location, IRX);
     cycles--;
-    std::cout << "STX Zero page executed, IRX: " << std::hex << IRX << "\n";
   }
 
   void sty_zp(int &cycles) {
@@ -179,7 +171,201 @@ struct CPU {
     cycles--;
     write(location, IRY);
     cycles--;
-    std::cout << "STY Zero page executed, IRY: " << std::hex << IRY << "\n";
+  }
+
+  void tax(int &cycles) {
+    IRX = AC;
+    // set zero flag
+    if (IRX == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (IRX & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+    cycles--;
+  }
+
+  void tay(int &cycles) {
+    IRY = AC;
+    // set zero flag
+    if (IRY == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (IRY & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+    cycles--;
+  }
+
+  void txa(int &cycles) {
+    AC = IRX;
+    // set zero flag
+    if (AC == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (AC & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+    cycles--;
+  }
+
+  void tya(int &cycles) {
+    AC = IRY;
+    // set zero flag
+    if (AC == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (AC & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+    cycles--;
+  }
+
+  void tsx(int &cycles) {
+    IRX = SP;
+    // set zero flag
+    if (IRX == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (IRX & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+    cycles--;
+  }
+
+  void txs(int &cycles) {
+    SP = IRX;
+    cycles--;
+  }
+
+  void pha(int &cycles) {
+    uint16_t address = 0x0100 + SP;
+    cycles--;
+    write(address, AC);
+    SP--;
+    cycles--;
+  }
+
+  void php(int &cycles) {
+    uint16_t address = 0x0100 + SP;
+    cycles--;
+    write(address, PS);
+    SP--;
+    cycles--;
+  }
+
+  void pla(int &cycles) {
+    read(0x0100 + SP);
+    cycles--;
+    SP++;
+    cycles--;
+    AC = read(0x0100 + SP);
+    cycles--;
+    // set zero flag
+    if (AC == 0) {
+      setFlag(ZERO_FLAG);
+    } else {
+      clearFlag(ZERO_FLAG);
+    }
+    // set negative flag
+    if (AC & 0x80) {
+      setFlag(NEGATIVE_FLAG);
+    } else {
+      clearFlag(NEGATIVE_FLAG);
+    }
+  }
+
+  void plp(int &cycles) {
+    read(0x0100 + SP);
+    cycles--;
+    SP++;
+    cycles--;
+    PS = read(0x0100 + SP);
+    cycles--;
+  }
+
+  void jmp_absolute(int &cycles) {
+    uint8_t low = read(PC++);
+    cycles--;
+    uint8_t high = read(PC++);
+    cycles--;
+    // little-endian
+    PC = (static_cast<uint16_t>(high) << 8) | low;
+  }
+
+  void jmp_indirect(int &cycles) {
+    uint8_t low = read(PC++);
+    cycles--;
+    uint8_t high = read(PC++);
+    cycles--;
+    // little-endian
+    uint16_t location = (static_cast<uint16_t>(high) << 8) | low;
+
+    uint8_t indirect_low = read(location);
+    cycles--;
+    // wrap page boundary bug
+    uint8_t indirect_high =
+        read((location & 0xFF00) | ((location + 1) & 0x00FF));
+    cycles--;
+
+    // little-endian
+    PC = (static_cast<uint16_t>(indirect_high) << 8) | indirect_low;
+  }
+
+  void jsr(int &cycles) {
+    uint8_t low = read(PC++);
+    cycles--;
+    uint8_t high = read(PC++);
+    cycles--;
+    uint16_t return_address = PC - 1;
+    write(0x0100 + SP, (return_address >> 8) & 0xFF);
+    SP--;
+    cycles--;
+    write(0x0100 + SP, return_address & 0xFF);
+    SP--;
+    cycles--;
+    PC = (static_cast<uint16_t>(high) << 8) | low;
+    cycles--;
+  }
+
+  void rts(int &cycles) {
+    SP++;
+    cycles--;
+
+    uint8_t low = read(0x0100 + SP);
+    SP++;
+    cycles--;
+    uint8_t high = read(0x0100 + SP);
+    cycles--;
+
+    PC = (static_cast<uint16_t>(high) << 8) | low;
+    PC++;
+    cycles--;
   }
 
   void execute(int cycles) {
@@ -210,6 +396,48 @@ struct CPU {
       case STY_ZP: {
         sty_zp(cycles);
       } break;
+      case TAX: {
+        tax(cycles);
+      } break;
+      case TAY: {
+        tay(cycles);
+      } break;
+      case TXA: {
+        txa(cycles);
+      } break;
+      case TYA: {
+        tya(cycles);
+      } break;
+      case TSX: {
+        tsx(cycles);
+      } break;
+      case TXS: {
+        txs(cycles);
+      } break;
+      case PHA: {
+        pha(cycles);
+      } break;
+      case PHP: {
+        php(cycles);
+      } break;
+      case PLA: {
+        pla(cycles);
+      } break;
+      case PLP: {
+        plp(cycles);
+      } break;
+      case JMP_ABSOLUTE: {
+        jmp_absolute(cycles);
+      } break;
+      case JMP_INDIRECT: {
+        jmp_indirect(cycles);
+      } break;
+      case JSR: {
+        jsr(cycles);
+      } break;
+      case RTS: {
+        rts(cycles);
+      } break;
       default:
         std::cout << "Unknown opcode: " << std::hex << +opcode << "\n";
         break;
@@ -224,9 +452,15 @@ int main() {
   Bus bus = Bus{&ram};
   CPU cpu = CPU{&bus};
 
-  std::cout << cpu.AC << "\n";
-  std::cout << cpu.IRX << "\n";
-  std::cout << cpu.IRY << "\n";
+  std::cout << "Accumulator: " << std::hex << +cpu.AC << " ";
+  std::cout << "Program Counter: " << std::hex << +cpu.PC << " ";
+  std::cout << "Stack Pointer: " << std::hex << +cpu.SP << " ";
+  std::cout << "Register X: " << std::hex << +cpu.IRX << " ";
+  std::cout << "Register Y: " << std::hex << +cpu.IRY << " ";
+  std::cout << "Processor Status: " << std::hex << +cpu.PS << "\n";
+  for (int i = 0; i < size(ram.data) / 8; i++) {
+    std::cout << std::hex << +ram.read(i) << " ";
+  }
 
   cpu.write(0x0000, 0xA9);
   cpu.write(0x0001, 0x67);
@@ -235,6 +469,16 @@ int main() {
   cpu.write(0x0004, 0xA0);
   cpu.write(0x0005, 0x69);
   cpu.execute(6);
+
+  std::cout << "Accumulator: " << std::hex << +cpu.AC << " ";
+  std::cout << "Program Counter: " << std::hex << +cpu.PC << " ";
+  std::cout << "Stack Pointer: " << std::hex << +cpu.SP << " ";
+  std::cout << "Register X: " << std::hex << +cpu.IRX << " ";
+  std::cout << "Register Y: " << std::hex << +cpu.IRY << " ";
+  std::cout << "Processor Status: " << std::hex << +cpu.PS << "\n";
+  for (int i = 0; i < size(ram.data) / 8; i++) {
+    std::cout << std::hex << +ram.read(i) << " ";
+  }
 
   return 0;
 }
