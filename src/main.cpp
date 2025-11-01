@@ -3,8 +3,7 @@
 #include "devices/ppu/ppu.h"
 #include "devices/ram/ram.h"
 #include "devices/rom/rom.h"
-#include <array>
-#include <iostream>
+#include <cstdint>
 
 int main() {
 
@@ -13,41 +12,47 @@ int main() {
   Ppu ppu = Ppu{};
   Bus bus = Bus{};
 
-  bus.attach(0x0000, 0x0800, &ram); // 2KB RAM
-  bus.attach(0x2000, 8, &ppu);
-  bus.attach(0xC000, 0x4000, &rom); // 16KB ROM
+  uint16_t rom_address_space = 0xc000;
+  bus.attach(rom_address_space, 0x4000, &rom); // 16KB ROM
+
+  uint16_t ram_address_space = 0x0000;
+  uint16_t ram_size = 0x0800;
+  bus.attach(ram_address_space, ram_size, &ram); // 2KB RAM
+
+  uint16_t ppu_address_space = 0x2000;
+  bus.attach(ppu_address_space, 8, &ppu);
 
   CPU cpu = CPU{&bus};
 
-  std::cout << "Accumulator: " << std::hex << +cpu.AC << " ";
-  std::cout << "Program Counter: " << std::hex << +cpu.PC << " ";
-  std::cout << "Stack Pointer: " << std::hex << +cpu.SP << " ";
-  std::cout << "Register X: " << std::hex << +cpu.IRX << " ";
-  std::cout << "Register Y: " << std::hex << +cpu.IRY << " ";
-  std::cout << "Processor Status: " << std::hex << +cpu.PS << "\n";
-  for (int i = 0; i < size(ram.data) / 8; i++) {
-    std::cout << std::hex << +ram.read(i) << " ";
+  uint16_t program_start = 0x0100;
+  std::vector<char> message = {'H', 'e', 'l', 'l', 'o', ' ',
+                               'w', 'o', 'r', 'l', 'd', '!'};
+  int message_length = size(message);
+
+  std::vector<uint8_t> program;
+  for (int i = 0; i < message_length; i++) {
+    program.push_back(0xA9);
+    program.push_back(message[i]);
+    program.push_back(0x8D);
+    program.push_back((program_start + i) & 0xFF);
+    program.push_back((program_start + i) >> 8);
+  }
+  std::cout << "Program byte code:\n";
+  for (int x : program) {
+    std::cout << std::hex << x << " ";
   }
   std::cout << "\n";
+  cpu.load_program(program, 0x0000);
+  cpu.execute(message_length * 6);
 
-  cpu.write(0x0000, 0xA9);
-  cpu.write(0x0001, 0x67);
-  cpu.write(0x0002, 0xA2);
-  cpu.write(0x0003, 0x68);
-  cpu.write(0x0004, 0xA0);
-  cpu.write(0x0005, 0x69);
-  cpu.execute(6);
-
-  std::cout << "Accumulator: " << std::hex << +cpu.AC << " ";
-  std::cout << "Program Counter: " << std::hex << +cpu.PC << " ";
-  std::cout << "Stack Pointer: " << std::hex << +cpu.SP << " ";
-  std::cout << "Register X: " << std::hex << +cpu.IRX << " ";
-  std::cout << "Register Y: " << std::hex << +cpu.IRY << " ";
-  std::cout << "Processor Status: " << std::hex << +cpu.PS << "\n";
-  for (int i = 0; i < size(ram.data) / 8; i++) {
-    std::cout << std::hex << +ram.read(i) << " ";
-  }
+  for (int i = 0; i < message_length; i++) {
+    std::cout << cpu.read(program_start + i);
+  };
   std::cout << "\n";
+
+  for (int i = 0; i < size(ram.data) / 4; i++) {
+    std::cout << std::hex << +ram.data[i] << " ";
+  }
 
   return 0;
 }

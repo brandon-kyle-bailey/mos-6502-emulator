@@ -24,8 +24,8 @@ struct CPU {
   static constexpr uint8_t
       // load/store operations
       LDA_IMMEDIATE = 0xA9,
-      LDX_IMMEDIATE = 0xA2, LDY_IMMEDIATE = 0xA0, STA_ZP = 0x85, STX_ZP = 0x86,
-      STY_ZP = 0x84,
+      LDX_IMMEDIATE = 0xA2, LDY_IMMEDIATE = 0xA0, STA_ZP = 0x85, STA_ABS = 0x8D,
+      STX_ZP = 0x86, STY_ZP = 0x84,
 
       // register transfers
       TAX = 0xAA, TAY = 0xA8, TXA = 0x8A, TYA = 0x98,
@@ -34,8 +34,13 @@ struct CPU {
       TSX = 0xBA, TXS = 0x9A, PHA = 0x48, PHP = 0x08, PLA = 0x68, PLP = 0x28,
 
       // logical
+      AND_IMMEDIATE = 0x29, ORA_IMMEDIATE = 0x09, EOR_IMMEDIATE = 0x49,
+
       // arithmetic
       // increment/decrement
+      INC_ZP = 0xE6, DEC_ZP = 0xC6, INX = 0xE8, INY = 0xC8, DEX = 0xCA,
+      DEY = 0x88,
+
       // shifts
 
       // jumps and calls
@@ -65,6 +70,8 @@ struct CPU {
   void ldy_immediate(int &cycles);
 
   void sta_zp(int &cycles);
+
+  void sta_abs(int &cycles);
 
   void stx_zp(int &cycles);
 
@@ -99,4 +106,7 @@ struct CPU {
   void rts(int &cycles);
 
   void execute(int cycles);
+
+  void load_program(const std::vector<uint8_t> &program,
+                    uint16_t start_address);
 };

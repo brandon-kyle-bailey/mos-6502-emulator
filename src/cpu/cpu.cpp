@@ -74,6 +74,16 @@ void CPU::sta_zp(int &cycles) {
   cycles--;
 }
 
+void CPU::sta_abs(int &cycles) {
+  uint8_t low = CPU::read(CPU::PC++);
+  cycles--;
+  uint8_t high = CPU::read(CPU::PC++);
+  cycles--;
+  uint16_t location = (static_cast<uint16_t>(high) << 8) | low;
+  CPU::write(location, CPU::AC);
+  cycles--;
+}
+
 void CPU::stx_zp(int &cycles) {
   uint8_t location = CPU::read(CPU::PC++);
   cycles--;
@@ -287,7 +297,6 @@ void CPU::execute(int cycles) {
   std::cout << "Starting execution for " << cycles << " cycles." << "\n";
   while (cycles > 0) {
     uint8_t opcode = CPU::read(CPU::PC++);
-    std::cout << "opcode: " << std::hex << +opcode << "\n";
     cycles--;
     switch (opcode) {
     case CPU::NOP: {
@@ -304,6 +313,9 @@ void CPU::execute(int cycles) {
     } break;
     case CPU::STA_ZP: {
       CPU::sta_zp(cycles);
+    } break;
+    case CPU::STA_ABS: {
+      CPU::sta_abs(cycles);
     } break;
     case CPU::STX_ZP: {
       CPU::stx_zp(cycles);
@@ -359,4 +371,11 @@ void CPU::execute(int cycles) {
     }
   }
   std::cout << "Finishing execution for " << cycles << " cycles." << "\n";
+}
+
+void CPU::load_program(std::vector<uint8_t> const &program,
+                       uint16_t start_address) {
+  for (size_t i = 0; i < program.size(); i++) {
+    CPU::write(start_address + i, program[i]);
+  }
 }
