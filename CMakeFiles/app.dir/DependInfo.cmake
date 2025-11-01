@@ -8,6 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/brandon/Repositories/cpu/src/bus/bus.cpp" "CMakeFiles/app.dir/src/bus/bus.cpp.o" "gcc" "CMakeFiles/app.dir/src/bus/bus.cpp.o.d"
+  "/home/brandon/Repositories/cpu/src/cpu/alu.cpp" "CMakeFiles/app.dir/src/cpu/alu.cpp.o" "gcc" "CMakeFiles/app.dir/src/cpu/alu.cpp.o.d"
+  "/home/brandon/Repositories/cpu/src/cpu/cpu.cpp" "CMakeFiles/app.dir/src/cpu/cpu.cpp.o" "gcc" "CMakeFiles/app.dir/src/cpu/cpu.cpp.o.d"
+  "/home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp" "CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o" "gcc" "CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o.d"
+  "/home/brandon/Repositories/cpu/src/devices/ram/ram.cpp" "CMakeFiles/app.dir/src/devices/ram/ram.cpp.o" "gcc" "CMakeFiles/app.dir/src/devices/ram/ram.cpp.o.d"
+  "/home/brandon/Repositories/cpu/src/devices/rom/rom.cpp" "CMakeFiles/app.dir/src/devices/rom/rom.cpp.o" "gcc" "CMakeFiles/app.dir/src/devices/rom/rom.cpp.o.d"
   "/home/brandon/Repositories/cpu/src/main.cpp" "CMakeFiles/app.dir/src/main.cpp.o" "gcc" "CMakeFiles/app.dir/src/main.cpp.o.d"
   "" "app" "gcc" "CMakeFiles/app.dir/link.d"
   )

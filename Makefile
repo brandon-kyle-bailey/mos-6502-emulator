@@ -136,6 +136,150 @@ app/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/build
 .PHONY : app/fast
 
+src/bus/bus.o: src/bus/bus.cpp.o
+.PHONY : src/bus/bus.o
+
+# target to build an object file
+src/bus/bus.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/bus/bus.cpp.o
+.PHONY : src/bus/bus.cpp.o
+
+src/bus/bus.i: src/bus/bus.cpp.i
+.PHONY : src/bus/bus.i
+
+# target to preprocess a source file
+src/bus/bus.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/bus/bus.cpp.i
+.PHONY : src/bus/bus.cpp.i
+
+src/bus/bus.s: src/bus/bus.cpp.s
+.PHONY : src/bus/bus.s
+
+# target to generate assembly for a file
+src/bus/bus.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/bus/bus.cpp.s
+.PHONY : src/bus/bus.cpp.s
+
+src/cpu/alu.o: src/cpu/alu.cpp.o
+.PHONY : src/cpu/alu.o
+
+# target to build an object file
+src/cpu/alu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/alu.cpp.o
+.PHONY : src/cpu/alu.cpp.o
+
+src/cpu/alu.i: src/cpu/alu.cpp.i
+.PHONY : src/cpu/alu.i
+
+# target to preprocess a source file
+src/cpu/alu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/alu.cpp.i
+.PHONY : src/cpu/alu.cpp.i
+
+src/cpu/alu.s: src/cpu/alu.cpp.s
+.PHONY : src/cpu/alu.s
+
+# target to generate assembly for a file
+src/cpu/alu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/alu.cpp.s
+.PHONY : src/cpu/alu.cpp.s
+
+src/cpu/cpu.o: src/cpu/cpu.cpp.o
+.PHONY : src/cpu/cpu.o
+
+# target to build an object file
+src/cpu/cpu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/cpu.cpp.o
+.PHONY : src/cpu/cpu.cpp.o
+
+src/cpu/cpu.i: src/cpu/cpu.cpp.i
+.PHONY : src/cpu/cpu.i
+
+# target to preprocess a source file
+src/cpu/cpu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/cpu.cpp.i
+.PHONY : src/cpu/cpu.cpp.i
+
+src/cpu/cpu.s: src/cpu/cpu.cpp.s
+.PHONY : src/cpu/cpu.s
+
+# target to generate assembly for a file
+src/cpu/cpu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/cpu/cpu.cpp.s
+.PHONY : src/cpu/cpu.cpp.s
+
+src/devices/ppu/ppu.o: src/devices/ppu/ppu.cpp.o
+.PHONY : src/devices/ppu/ppu.o
+
+# target to build an object file
+src/devices/ppu/ppu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o
+.PHONY : src/devices/ppu/ppu.cpp.o
+
+src/devices/ppu/ppu.i: src/devices/ppu/ppu.cpp.i
+.PHONY : src/devices/ppu/ppu.i
+
+# target to preprocess a source file
+src/devices/ppu/ppu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.i
+.PHONY : src/devices/ppu/ppu.cpp.i
+
+src/devices/ppu/ppu.s: src/devices/ppu/ppu.cpp.s
+.PHONY : src/devices/ppu/ppu.s
+
+# target to generate assembly for a file
+src/devices/ppu/ppu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.s
+.PHONY : src/devices/ppu/ppu.cpp.s
+
+src/devices/ram/ram.o: src/devices/ram/ram.cpp.o
+.PHONY : src/devices/ram/ram.o
+
+# target to build an object file
+src/devices/ram/ram.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ram/ram.cpp.o
+.PHONY : src/devices/ram/ram.cpp.o
+
+src/devices/ram/ram.i: src/devices/ram/ram.cpp.i
+.PHONY : src/devices/ram/ram.i
+
+# target to preprocess a source file
+src/devices/ram/ram.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ram/ram.cpp.i
+.PHONY : src/devices/ram/ram.cpp.i
+
+src/devices/ram/ram.s: src/devices/ram/ram.cpp.s
+.PHONY : src/devices/ram/ram.s
+
+# target to generate assembly for a file
+src/devices/ram/ram.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/ram/ram.cpp.s
+.PHONY : src/devices/ram/ram.cpp.s
+
+src/devices/rom/rom.o: src/devices/rom/rom.cpp.o
+.PHONY : src/devices/rom/rom.o
+
+# target to build an object file
+src/devices/rom/rom.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/rom/rom.cpp.o
+.PHONY : src/devices/rom/rom.cpp.o
+
+src/devices/rom/rom.i: src/devices/rom/rom.cpp.i
+.PHONY : src/devices/rom/rom.i
+
+# target to preprocess a source file
+src/devices/rom/rom.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/rom/rom.cpp.i
+.PHONY : src/devices/rom/rom.cpp.i
+
+src/devices/rom/rom.s: src/devices/rom/rom.cpp.s
+.PHONY : src/devices/rom/rom.s
+
+# target to generate assembly for a file
+src/devices/rom/rom.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app.dir/build.make CMakeFiles/app.dir/src/devices/rom/rom.cpp.s
+.PHONY : src/devices/rom/rom.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -170,6 +314,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... app"
+	@echo "... src/bus/bus.o"
+	@echo "... src/bus/bus.i"
+	@echo "... src/bus/bus.s"
+	@echo "... src/cpu/alu.o"
+	@echo "... src/cpu/alu.i"
+	@echo "... src/cpu/alu.s"
+	@echo "... src/cpu/cpu.o"
+	@echo "... src/cpu/cpu.i"
+	@echo "... src/cpu/cpu.s"
+	@echo "... src/devices/ppu/ppu.o"
+	@echo "... src/devices/ppu/ppu.i"
+	@echo "... src/devices/ppu/ppu.s"
+	@echo "... src/devices/ram/ram.o"
+	@echo "... src/devices/ram/ram.i"
+	@echo "... src/devices/ram/ram.s"
+	@echo "... src/devices/rom/rom.o"
+	@echo "... src/devices/rom/rom.i"
+	@echo "... src/devices/rom/rom.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
