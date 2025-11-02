@@ -9,7 +9,7 @@ struct CPU {
   // registers
   uint8_t AC = 0x00;
   uint16_t PC = 0x0000;
-  uint8_t SP = 0x00;
+  uint8_t SP = 0xFD; // Stack pointer: stack is at 0x0100-0x01FF, grows downward
   uint8_t IRX = 0x00;
   uint8_t IRY = 0x00;
   uint8_t PS = 0x00;
@@ -62,6 +62,10 @@ struct CPU {
   void write(uint16_t address, uint8_t value);
 
   void nop(int &cycles);
+
+  void brk(int &cycles);
+
+  void rti(int &cycles);
 
   void lda_immediate(int &cycles);
 

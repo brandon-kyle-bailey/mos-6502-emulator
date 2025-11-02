@@ -56,7 +56,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/brandon/Repositories/cpu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/brandon/Repositories/cpu
+CMAKE_BINARY_DIR = /home/brandon/Repositories/cpu/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/app.dir/depend.make
@@ -73,9 +73,9 @@ CMakeFiles/app.dir/codegen:
 .PHONY : CMakeFiles/app.dir/codegen
 
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/main.cpp.o: src/main.cpp
+CMakeFiles/app.dir/src/main.cpp.o: /home/brandon/Repositories/cpu/src/main.cpp
 CMakeFiles/app.dir/src/main.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/app.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/main.cpp.o -MF CMakeFiles/app.dir/src/main.cpp.o.d -o CMakeFiles/app.dir/src/main.cpp.o -c /home/brandon/Repositories/cpu/src/main.cpp
 
 CMakeFiles/app.dir/src/main.cpp.i: cmake_force
@@ -87,9 +87,9 @@ CMakeFiles/app.dir/src/main.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/main.cpp -o CMakeFiles/app.dir/src/main.cpp.s
 
 CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o: src/devices/ppu/ppu.cpp
+CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o: /home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp
 CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o -MF CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o.d -o CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o -c /home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp
 
 CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.i: cmake_force
@@ -101,9 +101,9 @@ CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp -o CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.s
 
 CMakeFiles/app.dir/src/devices/ram/ram.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/devices/ram/ram.cpp.o: src/devices/ram/ram.cpp
+CMakeFiles/app.dir/src/devices/ram/ram.cpp.o: /home/brandon/Repositories/cpu/src/devices/ram/ram.cpp
 CMakeFiles/app.dir/src/devices/ram/ram.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/devices/ram/ram.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/app.dir/src/devices/ram/ram.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/devices/ram/ram.cpp.o -MF CMakeFiles/app.dir/src/devices/ram/ram.cpp.o.d -o CMakeFiles/app.dir/src/devices/ram/ram.cpp.o -c /home/brandon/Repositories/cpu/src/devices/ram/ram.cpp
 
 CMakeFiles/app.dir/src/devices/ram/ram.cpp.i: cmake_force
@@ -115,9 +115,9 @@ CMakeFiles/app.dir/src/devices/ram/ram.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/devices/ram/ram.cpp -o CMakeFiles/app.dir/src/devices/ram/ram.cpp.s
 
 CMakeFiles/app.dir/src/devices/rom/rom.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/devices/rom/rom.cpp.o: src/devices/rom/rom.cpp
+CMakeFiles/app.dir/src/devices/rom/rom.cpp.o: /home/brandon/Repositories/cpu/src/devices/rom/rom.cpp
 CMakeFiles/app.dir/src/devices/rom/rom.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/devices/rom/rom.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/app.dir/src/devices/rom/rom.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/devices/rom/rom.cpp.o -MF CMakeFiles/app.dir/src/devices/rom/rom.cpp.o.d -o CMakeFiles/app.dir/src/devices/rom/rom.cpp.o -c /home/brandon/Repositories/cpu/src/devices/rom/rom.cpp
 
 CMakeFiles/app.dir/src/devices/rom/rom.cpp.i: cmake_force
@@ -129,9 +129,9 @@ CMakeFiles/app.dir/src/devices/rom/rom.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/devices/rom/rom.cpp -o CMakeFiles/app.dir/src/devices/rom/rom.cpp.s
 
 CMakeFiles/app.dir/src/cpu/cpu.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/cpu/cpu.cpp.o: src/cpu/cpu.cpp
+CMakeFiles/app.dir/src/cpu/cpu.cpp.o: /home/brandon/Repositories/cpu/src/cpu/cpu.cpp
 CMakeFiles/app.dir/src/cpu/cpu.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/cpu/cpu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/app.dir/src/cpu/cpu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/cpu/cpu.cpp.o -MF CMakeFiles/app.dir/src/cpu/cpu.cpp.o.d -o CMakeFiles/app.dir/src/cpu/cpu.cpp.o -c /home/brandon/Repositories/cpu/src/cpu/cpu.cpp
 
 CMakeFiles/app.dir/src/cpu/cpu.cpp.i: cmake_force
@@ -143,9 +143,9 @@ CMakeFiles/app.dir/src/cpu/cpu.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/cpu/cpu.cpp -o CMakeFiles/app.dir/src/cpu/cpu.cpp.s
 
 CMakeFiles/app.dir/src/cpu/alu.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/cpu/alu.cpp.o: src/cpu/alu.cpp
+CMakeFiles/app.dir/src/cpu/alu.cpp.o: /home/brandon/Repositories/cpu/src/cpu/alu.cpp
 CMakeFiles/app.dir/src/cpu/alu.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/src/cpu/alu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/app.dir/src/cpu/alu.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/cpu/alu.cpp.o -MF CMakeFiles/app.dir/src/cpu/alu.cpp.o.d -o CMakeFiles/app.dir/src/cpu/alu.cpp.o -c /home/brandon/Repositories/cpu/src/cpu/alu.cpp
 
 CMakeFiles/app.dir/src/cpu/alu.cpp.i: cmake_force
@@ -157,9 +157,9 @@ CMakeFiles/app.dir/src/cpu/alu.cpp.s: cmake_force
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/brandon/Repositories/cpu/src/cpu/alu.cpp -o CMakeFiles/app.dir/src/cpu/alu.cpp.s
 
 CMakeFiles/app.dir/src/bus/bus.cpp.o: CMakeFiles/app.dir/flags.make
-CMakeFiles/app.dir/src/bus/bus.cpp.o: src/bus/bus.cpp
+CMakeFiles/app.dir/src/bus/bus.cpp.o: /home/brandon/Repositories/cpu/src/bus/bus.cpp
 CMakeFiles/app.dir/src/bus/bus.cpp.o: CMakeFiles/app.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/app.dir/src/bus/bus.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/app.dir/src/bus/bus.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/app.dir/src/bus/bus.cpp.o -MF CMakeFiles/app.dir/src/bus/bus.cpp.o.d -o CMakeFiles/app.dir/src/bus/bus.cpp.o -c /home/brandon/Repositories/cpu/src/bus/bus.cpp
 
 CMakeFiles/app.dir/src/bus/bus.cpp.i: cmake_force
@@ -193,7 +193,7 @@ app: CMakeFiles/app.dir/src/bus/bus.cpp.o
 app: CMakeFiles/app.dir/build.make
 app: CMakeFiles/app.dir/compiler_depend.ts
 app: CMakeFiles/app.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/brandon/Repositories/cpu/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable app"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/brandon/Repositories/cpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable app"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/app.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -205,6 +205,6 @@ CMakeFiles/app.dir/clean:
 .PHONY : CMakeFiles/app.dir/clean
 
 CMakeFiles/app.dir/depend:
-	cd /home/brandon/Repositories/cpu && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu/CMakeFiles/app.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/brandon/Repositories/cpu/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu /home/brandon/Repositories/cpu/build /home/brandon/Repositories/cpu/build /home/brandon/Repositories/cpu/build/CMakeFiles/app.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/app.dir/depend
 
