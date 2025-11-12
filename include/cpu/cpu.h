@@ -1,4 +1,4 @@
-#include "../bus/bus.h"
+#include "bus/bus.h"
 
 #include <cstdint>
 #include <iostream>

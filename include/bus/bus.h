@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../devices/device.h"
+#include "devices/device.h"
 
 #include <cstdint>
 #include <vector>

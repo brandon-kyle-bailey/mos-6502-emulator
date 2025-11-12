@@ -1,5 +1,5 @@
-#include "bus.h"
-#include <iostream>
+#include "bus/bus.h"
+#include <stdexcept>
 
 void Bus::attach(uint16_t base, uint16_t size, Device *device) {
   devices.push_back({base, size, device});

@@ -1,4 +1,4 @@
-#include "cpu.h"
+#include "cpu/cpu.h"
 
 void CPU::setFlag(uint8_t flag) { PS |= flag; }
 void CPU::clearFlag(uint8_t flag) { PS &= ~flag; }

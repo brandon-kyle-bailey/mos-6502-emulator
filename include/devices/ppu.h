@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../device.h"
+#include "device.h"
 #include <array>
-struct Rom : Device {
+struct Ppu : Device {
 
   // 2 KB internal RAM
   std::array<uint8_t, 0x0800> data{};

@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/main.cpp.o -c /home/brandon/Repositories/cpu/src/main.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/main.cpp",
+  "output": "CMakeFiles/app.dir/src/main.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o -c /home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/devices/ppu/ppu.cpp",
+  "output": "CMakeFiles/app.dir/src/devices/ppu/ppu.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/devices/ram/ram.cpp.o -c /home/brandon/Repositories/cpu/src/devices/ram/ram.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/devices/ram/ram.cpp",
+  "output": "CMakeFiles/app.dir/src/devices/ram/ram.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/devices/rom/rom.cpp.o -c /home/brandon/Repositories/cpu/src/devices/rom/rom.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/devices/rom/rom.cpp",
+  "output": "CMakeFiles/app.dir/src/devices/rom/rom.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/cpu/cpu.cpp.o -c /home/brandon/Repositories/cpu/src/cpu/cpu.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/cpu/cpu.cpp",
+  "output": "CMakeFiles/app.dir/src/cpu/cpu.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/cpu/alu.cpp.o -c /home/brandon/Repositories/cpu/src/cpu/alu.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/cpu/alu.cpp",
+  "output": "CMakeFiles/app.dir/src/cpu/alu.cpp.o"
+},
+{
+  "directory": "/home/brandon/Repositories/cpu/build",
+  "command": "/usr/bin/c++  -isystem /home/brandon/Repositories/cpu/include -std=gnu++17 -o CMakeFiles/app.dir/src/bus/bus.cpp.o -c /home/brandon/Repositories/cpu/src/bus/bus.cpp",
+  "file": "/home/brandon/Repositories/cpu/src/bus/bus.cpp",
+  "output": "CMakeFiles/app.dir/src/bus/bus.cpp.o"
+}
+]

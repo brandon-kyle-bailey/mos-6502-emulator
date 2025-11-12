@@ -1,8 +1,8 @@
 #include "bus/bus.h"
 #include "cpu/cpu.h"
-#include "devices/ppu/ppu.h"
-#include "devices/ram/ram.h"
-#include "devices/rom/rom.h"
+#include "devices/ppu.h"
+#include "devices/ram.h"
+#include "devices/rom.h"
 #include <cstdint>
 #include <iostream>
 #include <string>
@@ -21,8 +21,6 @@ int main() {
 
   uint16_t output_addr = 0x0200;
   std::string input = "Hello world this is my first cpu assembled script.";
-  // std::vector<char> message = {'H', 'e', 'l', 'l', 'o', ' ',
-  //                              'w', 'o', 'r', 'l', 'd', '!', ' ', 'H', };
 
   std::vector<char> message(input.begin(), input.end());
 

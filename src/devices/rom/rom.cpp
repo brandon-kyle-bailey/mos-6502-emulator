@@ -1,4 +1,4 @@
-#include "rom.h"
+#include "devices/rom.h"
 
 uint8_t Rom::read(uint16_t address) { return data[address & 0x07FF]; }
 
